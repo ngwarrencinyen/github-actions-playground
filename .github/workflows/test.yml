@@ -45,5 +45,5 @@ jobs:
     - name: Deploy
       working-directory: webapp
       run: |
-        npm run deploy
+        npm run build
         echo "Deploying....."
