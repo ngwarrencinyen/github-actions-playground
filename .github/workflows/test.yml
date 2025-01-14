@@ -1,10 +1,7 @@
-name: Test Workflow
+name: CI
 
 on:
   push:
-    branches:
-      - main
-  pull_request:
     branches:
       - main
 
@@ -22,11 +19,9 @@ jobs:
         node-version: '18'
     
     - name: Install dependencies
-      run: |
-        cd webapp
-        pwd
-        npm install
-        
+      working-directory: webapp
+      run: npm install
 
     - name: Run tests
+      working-directory: webapp
       run: npm test
