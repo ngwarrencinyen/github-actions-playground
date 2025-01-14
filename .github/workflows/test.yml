@@ -1,9 +1,6 @@
 name: CI
 
-on:
-  push:
-    branches:
-      - main
+on: [push, workflow_dispatch]
 
 jobs:
   build:
@@ -45,5 +42,5 @@ jobs:
     - name: Deploy
       working-directory: webapp
       run: |
-        npm run build
+        npm run deploy
         echo "Deploying....."
