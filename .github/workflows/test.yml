@@ -22,11 +22,12 @@ jobs:
         node-version: '18'
     
     - name: Switch to "webapp" directory
-      run: cd webapp
+      run: \
+        cd webapp
+        pwd
 
     - name: Install dependencies
       run: npm ci
-      
 
     - name: Run tests
       run: npm test
