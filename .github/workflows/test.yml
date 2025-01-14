@@ -11,7 +11,7 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3 
+      uses: actions/checkout@v3
 
     - name: Set up Node.js
       uses: actions/setup-node@v3
@@ -25,3 +25,25 @@ jobs:
     - name: Run tests
       working-directory: webapp
       run: npm test
+  
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3 
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+    
+    - name: Install dependencies
+      working-directory: webapp
+      run: npm install
+
+    - name: Deploy
+      working-directory: webapp
+      run: |
+        npm run deploy
+        echo "Deploying....."
