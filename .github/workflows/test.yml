@@ -22,7 +22,7 @@ jobs:
         node-version: '18'
     
     - name: Switch to "webapp" directory
-      run: \
+      run: |
         cd webapp
         pwd
 
